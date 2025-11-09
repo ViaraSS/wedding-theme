@@ -52,6 +52,9 @@
             var guestsList = [];
             $('.guest-list input').each(function () {
                 guestsList.push(this.value);
+            $form.off("submit"); // премахва прихващането, за да не стане безкрайна рекурсия
+            $form.submit();      // изпраща формата към form.php
+
             });
             // get the form data
             var formData = {
@@ -259,7 +262,7 @@
             var timeinterval = setInterval(updateClock, 1000);
         }
         // set your wedding date here
-        var deadline = 'October 25 2025 17:30:00 GMT+0300';
+        var deadline = 'November 28 2025 17:30:00 GMT+0300';
         if (countdown) {
             initializeClock('timer', deadline);
         }
